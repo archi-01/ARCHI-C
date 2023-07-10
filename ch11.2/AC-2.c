@@ -8,7 +8,7 @@ int crud(int a[],int n)
 	printf("Enter 3 To Delete In Array\n");
 	printf("Enter 4 To Display In Array\n");
 	printf("Enter 5 To Exit !!\n");
-	printf("Enter Your Choice :- \n");
+	printf("Enter Your Choice : \n");
 	scanf("%d",&choice);
 	
 	switch(choice)
@@ -17,16 +17,16 @@ int crud(int a[],int n)
 			n = insert(a,n);
 			break;
 		case 2:
-			update(a,n);
+			n=update(a,n);
 			break;
 		case 3:
 			n = minus(a,n);
 			break;
 		case 4:
-			display(a,n);
+			n=display(a,n);
 			break;
 		case 5:
-			printf("Exited !!!!");
+			printf("Exit!!!!");
 			break;
 		default:
 			printf("Invalid Choice | Try Again !!");
@@ -39,26 +39,26 @@ int insert(int a[],int n)
 {
 	int i,pos,val;
 	
-	printf("Enter Position :- ");
+	printf("Enter Position : ");
 	scanf("%d",&pos);
-	printf("Enter Value :- ");
+	printf("Enter Value : ");
 	scanf("%d",&val);
 	
-	for(i=n;i>=pos;i--)
+	for(i=n+1;i>=pos;i--)
 	{
 		a[i] = a[i-1]; 
 	}
 	a[pos] = val;
-	n++;
+	i++;
 	return n;
 }
 void update(int a[],int n)
 {
 	int i,pos,val;
 	
-	printf("Enter Position :- ");
+	printf("Enter Position : ");
 	scanf("%d",&pos);
-	printf("Enter Value :- ");
+	printf("Enter Value : ");
 	scanf("%d",&val);
 	
 	for(i=n;i>pos;i--)
@@ -66,29 +66,29 @@ void update(int a[],int n)
 		a[i+1] = a[i]; 
 	}
 	a[pos] = val;
-	n++;
+	i++;
 }
 void display(int a[],int n)
 {
 	int i;
 	for(i=0;i<n;i++)
 	{
-		printf("a[%d] :- %d\n",i,a[i]);
+		printf("a[%d] : %d\n",i,a[i]);
 	}
 }
 int minus(int a[],int n)
 {
 	int i,pos,val;
-	printf("Enter Position :- ");
+	printf("Enter Position : ");
 	scanf("%d",&pos);
-	printf("Enter Value :- ");
+	printf("Enter Value : ");
 	scanf("%d",&val);
 	
 	for(i=n;i>=pos;i--)
 	{
 		a[i] = a[i-1]; 
 	}
-	n--;
+	i--;
 	return n;
 }
 
@@ -98,7 +98,7 @@ void arrayInput (int a[],int n)
 	
 	for(i=0;i<n;i++)
 	{
-		printf(" array a[%d] :- ",i);
+		printf(" array a[%d] : ",i);
 		scanf("%d",&a[i]);
 	}
 }
@@ -106,7 +106,7 @@ void arrayInput (int a[],int n)
 void main()
 {
 	int n,choice;
-	printf("Enter Length Of Array :- ");
+	printf("Enter size Of Array : ");
 	scanf("%d",&n);
 	
 	int a[n];
@@ -119,6 +119,3 @@ void main()
 	}
 	while(choice!=5);
 }
-
-
-
